@@ -1,0 +1,10 @@
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\Task Manager Server.exe.config
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\obj\Debug\Task Manager Server.csprojResolveAssemblyReference.cache
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\Task Manager Server.exe
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\Task Manager Server.pdb
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\Mask Manager Classes.dll
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\System.Data.SQLite.dll
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\Mask Manager Classes.pdb
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\bin\Debug\System.Data.SQLite.pdb
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\obj\Debug\Task Manager Server.exe
+D:\Projects\Task Manager\Task Manager Server\Task Manager Server\obj\Debug\Task Manager Server.pdb

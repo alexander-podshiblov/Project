@@ -1,0 +1,15 @@
+D:\Projects\Task Manager\Task Manager Client\bin\Debug\Task Manager Client.exe.config
+D:\Projects\Task Manager\Task Manager Client\bin\Debug\Task Manager Client.exe
+D:\Projects\Task Manager\Task Manager Client\bin\Debug\Task Manager Client.pdb
+D:\Projects\Task Manager\Task Manager Client\bin\Debug\Mask Manager Classes.dll
+D:\Projects\Task Manager\Task Manager Client\bin\Debug\Mask Manager Classes.pdb
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task Manager Client.csprojResolveAssemblyReference.cache
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.Form1.resources
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.Properties.Resources.resources
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.SignIn.resources
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task Manager Client.csproj.GenerateResource.Cache
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task Manager Client.exe
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task Manager Client.pdb
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.AddTask.resources
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.OrderForm.resources
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.TaskForm.resources

@@ -1,0 +1,5 @@
+D:\Projects\Task Manager\Mask Manager Classes\obj\Debug\Task Manager Classes.csprojResolveAssemblyReference.cache
+D:\Projects\Task Manager\Mask Manager Classes\bin\Debug\Mask Manager Classes.dll
+D:\Projects\Task Manager\Mask Manager Classes\bin\Debug\Mask Manager Classes.pdb
+D:\Projects\Task Manager\Mask Manager Classes\obj\Debug\Mask Manager Classes.dll
+D:\Projects\Task Manager\Mask Manager Classes\obj\Debug\Mask Manager Classes.pdb
