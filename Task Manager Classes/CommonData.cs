@@ -6,8 +6,8 @@ namespace Task_Manager_Classes
     public class CommonData
     {
         public static string dataBasePath = "tmdb.db";
-        //public static string serverUri = "net.tcp://localhost:8080/TaskManager";
-        public static string serverUri = "net.tcp://192.168.0.101:8080/TaskManager";
+        public static string serverUriB = "net.tcp://";
+        public static string serverUriE = ":8080/TaskManager";
 
         public static string salt = "f10551c61d8f9d";
         private static string md5(string input)

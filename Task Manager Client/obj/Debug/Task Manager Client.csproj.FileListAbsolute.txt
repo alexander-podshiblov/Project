@@ -13,3 +13,4 @@ D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task Manager Client.pdb
 D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.AddTask.resources
 D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.OrderForm.resources
 D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.TaskForm.resources
+D:\Projects\Task Manager\Task Manager Client\obj\Debug\Task_Manager_Client.SetIp.resources

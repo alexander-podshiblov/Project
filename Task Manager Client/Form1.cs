@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 using System.Collections;
 using System.Collections.Generic;
 using Task_Manager_Classes;
@@ -15,18 +16,39 @@ namespace Task_Manager_Client
         int statusFilter;
         int statusTaskFilter;
         
-        public Form1(CommunicationInterface s)
+        public Form1()
         {
             InitializeComponent();
-            service = s;
 
             statusFilter = 1;
             statusBox.SelectedIndex = 0;
 
             statusTaskFilter = 1;
             statusTaskBox.SelectedIndex = 0;
+
+            connectToServer();
         }
         
+        public void connectToServer()
+        {
+            string serverUri = CommonData.serverUriB + Properties.Settings.Default.serverUri + CommonData.serverUriE;
+
+            Uri tcpUri = new Uri(serverUri);
+            EndpointAddress address = new EndpointAddress(tcpUri);
+            NetTcpBinding binding = new NetTcpBinding();
+            //-----
+            binding.TransactionFlow = false;
+            binding.Security.Transport.ProtectionLevel =
+               System.Net.Security.ProtectionLevel.EncryptAndSign;
+            binding.Security.Transport.ClientCredentialType =
+               TcpClientCredentialType.Windows;
+            binding.Security.Mode = SecurityMode.None;
+            //-----
+
+            ChannelFactory<CommunicationInterface> factory = new ChannelFactory<CommunicationInterface>(binding, address);
+            service = factory.CreateChannel();
+        }
+
         public void enableTab()
         {
             tab.Enabled = true;
@@ -189,6 +211,25 @@ namespace Task_Manager_Client
         private void updateButton_Click(object sender, EventArgs e)
         {
             updateTasks();
+        }
+
+        private void signInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statusFilter = 1;
+            statusBox.SelectedIndex = 0;
+
+            statusTaskFilter = 1;
+            statusTaskBox.SelectedIndex = 0;
+
+            this.Enabled = false;
+            tab.Enabled = false;
+            SignIn si = new SignIn(user, service, this);
+            si.Show();
+        }
+
+        private void changeServerIPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new SetIp(this)).Show();
         }
 
     }

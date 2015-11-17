@@ -30,6 +30,16 @@
         {
             this.tab = new System.Windows.Forms.TabControl();
             this.myTasks = new System.Windows.Forms.TabPage();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.statusTaskBox = new System.Windows.Forms.ComboBox();
+            this.openTaskButton = new System.Windows.Forms.Button();
+            this.tasksView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.myOrders = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.statusBox = new System.Windows.Forms.ComboBox();
@@ -41,26 +51,21 @@
             this.deadlineHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addTaskButton = new System.Windows.Forms.Button();
-            this.tasksView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.statusTaskBox = new System.Windows.Forms.ComboBox();
-            this.openTaskButton = new System.Windows.Forms.Button();
-            this.updateButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.connectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeServerIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tab.SuspendLayout();
             this.myTasks.SuspendLayout();
             this.myOrders.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab
             // 
             this.tab.Controls.Add(this.myTasks);
             this.tab.Controls.Add(this.myOrders);
-            this.tab.Location = new System.Drawing.Point(12, 12);
+            this.tab.Location = new System.Drawing.Point(12, 42);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
             this.tab.Size = new System.Drawing.Size(600, 417);
@@ -80,6 +85,96 @@
             this.myTasks.TabIndex = 0;
             this.myTasks.Text = "My Tasks";
             this.myTasks.UseVisualStyleBackColor = true;
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(510, 361);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 8;
+            this.updateButton.Text = "Refresh";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(139, 366);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Status of tasks:";
+            // 
+            // statusTaskBox
+            // 
+            this.statusTaskBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusTaskBox.FormattingEnabled = true;
+            this.statusTaskBox.Items.AddRange(new object[] {
+            "Active",
+            "Done",
+            "Failed",
+            "<All>"});
+            this.statusTaskBox.Location = new System.Drawing.Point(225, 363);
+            this.statusTaskBox.Name = "statusTaskBox";
+            this.statusTaskBox.Size = new System.Drawing.Size(121, 21);
+            this.statusTaskBox.TabIndex = 6;
+            this.statusTaskBox.SelectedIndexChanged += new System.EventHandler(this.statusTaskBox_SelectedIndexChanged);
+            // 
+            // openTaskButton
+            // 
+            this.openTaskButton.Location = new System.Drawing.Point(6, 361);
+            this.openTaskButton.Name = "openTaskButton";
+            this.openTaskButton.Size = new System.Drawing.Size(75, 23);
+            this.openTaskButton.TabIndex = 5;
+            this.openTaskButton.Text = "Open";
+            this.openTaskButton.UseVisualStyleBackColor = true;
+            this.openTaskButton.Click += new System.EventHandler(this.openTaskButton_Click);
+            // 
+            // tasksView
+            // 
+            this.tasksView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.tasksView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.tasksView.Location = new System.Drawing.Point(6, 6);
+            this.tasksView.MultiSelect = false;
+            this.tasksView.Name = "tasksView";
+            this.tasksView.Size = new System.Drawing.Size(579, 349);
+            this.tasksView.TabIndex = 2;
+            this.tasksView.UseCompatibleStateImageBehavior = false;
+            this.tasksView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Title";
+            this.columnHeader1.Width = 171;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "From";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 152;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Date";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 98;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Deadline";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 84;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Status";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 57;
             // 
             // myOrders
             // 
@@ -187,103 +282,48 @@
             this.addTaskButton.UseVisualStyleBackColor = true;
             this.addTaskButton.Click += new System.EventHandler(this.addTaskButton_Click);
             // 
-            // tasksView
+            // menuStrip1
             // 
-            this.tasksView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.tasksView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.tasksView.Location = new System.Drawing.Point(6, 6);
-            this.tasksView.MultiSelect = false;
-            this.tasksView.Name = "tasksView";
-            this.tasksView.Size = new System.Drawing.Size(579, 349);
-            this.tasksView.TabIndex = 2;
-            this.tasksView.UseCompatibleStateImageBehavior = false;
-            this.tasksView.View = System.Windows.Forms.View.Details;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectionToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(624, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // columnHeader1
+            // connectionToolStripMenuItem
             // 
-            this.columnHeader1.Text = "Title";
-            this.columnHeader1.Width = 171;
+            this.connectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.signInToolStripMenuItem,
+            this.changeServerIPToolStripMenuItem});
+            this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.connectionToolStripMenuItem.Text = "Connection";
             // 
-            // columnHeader2
+            // signInToolStripMenuItem
             // 
-            this.columnHeader2.Text = "From";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 152;
+            this.signInToolStripMenuItem.Name = "signInToolStripMenuItem";
+            this.signInToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.signInToolStripMenuItem.Text = "Sign In";
+            this.signInToolStripMenuItem.Click += new System.EventHandler(this.signInToolStripMenuItem_Click);
             // 
-            // columnHeader3
+            // changeServerIPToolStripMenuItem
             // 
-            this.columnHeader3.Text = "Date";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 98;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Deadline";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 84;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Status";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 57;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 366);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Status of tasks:";
-            // 
-            // statusTaskBox
-            // 
-            this.statusTaskBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.statusTaskBox.FormattingEnabled = true;
-            this.statusTaskBox.Items.AddRange(new object[] {
-            "Active",
-            "Done",
-            "Failed",
-            "<All>"});
-            this.statusTaskBox.Location = new System.Drawing.Point(225, 363);
-            this.statusTaskBox.Name = "statusTaskBox";
-            this.statusTaskBox.Size = new System.Drawing.Size(121, 21);
-            this.statusTaskBox.TabIndex = 6;
-            this.statusTaskBox.SelectedIndexChanged += new System.EventHandler(this.statusTaskBox_SelectedIndexChanged);
-            // 
-            // openTaskButton
-            // 
-            this.openTaskButton.Location = new System.Drawing.Point(6, 361);
-            this.openTaskButton.Name = "openTaskButton";
-            this.openTaskButton.Size = new System.Drawing.Size(75, 23);
-            this.openTaskButton.TabIndex = 5;
-            this.openTaskButton.Text = "Open";
-            this.openTaskButton.UseVisualStyleBackColor = true;
-            this.openTaskButton.Click += new System.EventHandler(this.openTaskButton_Click);
-            // 
-            // updateButton
-            // 
-            this.updateButton.Location = new System.Drawing.Point(510, 361);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
-            this.updateButton.TabIndex = 8;
-            this.updateButton.Text = "Refresh";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            this.changeServerIPToolStripMenuItem.Name = "changeServerIPToolStripMenuItem";
+            this.changeServerIPToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.changeServerIPToolStripMenuItem.Text = "Change server IP";
+            this.changeServerIPToolStripMenuItem.Click += new System.EventHandler(this.changeServerIPToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(624, 471);
             this.Controls.Add(this.tab);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task Manager";
@@ -293,7 +333,10 @@
             this.myTasks.PerformLayout();
             this.myOrders.ResumeLayout(false);
             this.myOrders.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -322,6 +365,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem connectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeServerIPToolStripMenuItem;
     }
 }
 

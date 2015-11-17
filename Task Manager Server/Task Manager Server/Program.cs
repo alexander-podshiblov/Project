@@ -32,7 +32,13 @@ namespace Task_Manager_Server
         {
             Executor.openConnection();
 
-            ServiceHost host = new ServiceHost(typeof(QueryHandler), new Uri(CommonData.serverUri));
+            string serverUri;
+            Console.Write("Enter ip: ");
+            serverUri = Console.ReadLine();
+
+            serverUri = CommonData.serverUriB + serverUri + CommonData.serverUriE;
+
+            ServiceHost host = new ServiceHost(typeof(QueryHandler), new Uri(serverUri));
             NetTcpBinding binding = new NetTcpBinding();
             //-----
             binding.TransactionFlow = false;
