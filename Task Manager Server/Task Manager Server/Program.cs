@@ -28,6 +28,77 @@ namespace Task_Manager_Server
             return m;
         }
 
+        private static string login = "";
+        private static string hash = "";
+
+        private static void mainCircle()
+        {
+            while (true)
+            {
+                Console.Write("Admin mode> ");
+                string cmd = Console.ReadLine();
+                if (cmd == "register_member")
+                {
+                    Member m = collectMemberInfo();
+                    Console.Write("Enter login: ");
+                    string login = Console.ReadLine();
+                    Console.Write("Enter password: ");
+                    string pass = Console.ReadLine();
+
+                    Executor.registerNewMember(m, login, pass);
+                }
+                else if (cmd == "logout")
+                {
+                    login = "";
+                    hash = "";
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("< unknown command : " + "\"" + cmd + "\"" + " >");
+                }
+            }
+        }
+
+        private static void waitRegistration()
+        {
+            while (true)
+            {
+                Console.Write("Admin reg mode>");
+                string cmd = Console.ReadLine();
+                if (cmd == "register_admin")
+                {
+                    Console.Write("Enter login: ");
+                    string l = Console.ReadLine();
+                    Console.Write("Enter password: ");
+                    string h = CommonData.hash_with_salt(Console.ReadLine());
+
+                    Executor.registerAdmin(l, h);
+
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("< unknown command : " + "\"" + cmd + "\"" + " >");
+                }
+            }
+        }
+
+        private static void signIn()
+        {
+            Console.Write("Enter login: ");
+            login = Console.ReadLine();
+            Console.Write("Enter password: ");
+            hash = CommonData.hash_with_salt(Console.ReadLine());
+
+            if (Executor.isHashTrue(login, hash))
+                mainCircle();
+            else
+                Console.WriteLine("Wrong");
+        }
+
+        
+
         static void Main(string[] args)
         {
             Executor.openConnection();
@@ -53,31 +124,24 @@ namespace Task_Manager_Server
             host.Open();
             Console.WriteLine("Start service...");
 
+            if (!Executor.isAdminExist())
+                waitRegistration();
             
-
             while (true)
             {
+                Console.Write("Not admin mode>");
                 string cmd = Console.ReadLine();
-                if (cmd == "close")
+                if (cmd == "signin")
                 {
-                    host.Close();
-                    return;
-                }
-                else if (cmd == "register_member")
-                {
-                    Member m = collectMemberInfo();
-                    Console.Write("Enter login: ");
-                    string login = Console.ReadLine();
-                    Console.Write("Enter password: ");
-                    string pass = Console.ReadLine();
-
-                    Executor.registerNewMember(m, login, pass);
+                    signIn();
                 }
                 else
                 {
                     Console.WriteLine("< unknown command : " + "\"" + cmd + "\"" + " >");
                 }
             }
+            
+            
 
         }
     }

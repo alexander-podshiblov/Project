@@ -25,7 +25,7 @@ namespace Task_Manager_Client.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.103")]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string serverUri {
             get {
                 return ((string)(this["serverUri"]));

@@ -7,6 +7,7 @@ namespace Task_Manager_Server
 {
     class Executor
     {
+
         private static SQLiteConnection conn = new SQLiteConnection("Data Source=" + CommonData.dataBasePath + "; Version=3;");
         public static void openConnection()
         {
@@ -21,6 +22,22 @@ namespace Task_Manager_Server
             }
         }
 
+        public static void registerAdmin(string login, string hash)
+        {
+            SQLiteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO Pass (member_id, login, hash) "
+                            + "VALUES (-1, '" + login + "', '" + hash + "');";
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+                                  
+        }
 
         public static void registerNewMember(Member m, string login, string pass)
         {
@@ -160,7 +177,7 @@ namespace Task_Manager_Server
 
             SQLiteCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT id, lname, fname, pat, level FROM Members WHERE (dep_id = " + user.dep + ")"
-                            + "AND (level > " + user.level + ");";
+                            + "AND (level > " + user.level + ") AND (status = 1);";
 
             try
             {
@@ -376,6 +393,26 @@ namespace Task_Manager_Server
             {
                 return ex.Message;
             }
+        }
+
+        public static bool isAdminExist()
+        {
+            SQLiteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT count(rowid) FROM Pass WHERE member_id = -1";
+
+            try
+            {
+                int c = (int)(long)cmd.ExecuteScalar();
+                if (c == 0)
+                    return false;
+                else
+                    return true;
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
     }
 }
