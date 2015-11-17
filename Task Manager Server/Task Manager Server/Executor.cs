@@ -414,5 +414,44 @@ namespace Task_Manager_Server
             }
             return false;
         }
+
+        public static void printIdsOfMembers()
+        {
+            SQLiteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT id, status FROM Members WHERE (id > 0)";
+
+            try
+            {
+                SQLiteDataReader r = cmd.ExecuteReader();
+
+                Console.WriteLine("Members (id | name | status):");
+                while (r.Read())
+                {
+                    Console.WriteLine(r["id"] + " | " + getShortName((int)(long)r["id"])
+                                       + " | " + r["status"]);
+
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static string setMemberStatus(int id, int status)
+        {
+            SQLiteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE Members SET status = " + status + " WHERE id = " + id;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return "Success";
+            }
+            catch (SQLiteException ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

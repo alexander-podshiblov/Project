@@ -47,6 +47,24 @@ namespace Task_Manager_Server
 
                     Executor.registerNewMember(m, login, pass);
                 }
+                else if (cmd == "show_members")
+                {
+                    Executor.printIdsOfMembers();
+                }
+                else if (cmd == "set_status")
+                {
+                    Executor.printIdsOfMembers();
+
+                    Console.Write("Enter id: ");
+                    int i;
+                    int.TryParse(Console.ReadLine(), out i);
+                    
+                    Console.Write("Enter status (0 / 1): ");
+                    int s;
+                    int.TryParse(Console.ReadLine(), out s);
+
+                    Console.WriteLine(Executor.setMemberStatus(i, s));
+                }
                 else if (cmd == "logout")
                 {
                     login = "";
@@ -64,7 +82,7 @@ namespace Task_Manager_Server
         {
             while (true)
             {
-                Console.Write("Admin reg mode>");
+                Console.Write("Admin reg mode> ");
                 string cmd = Console.ReadLine();
                 if (cmd == "register_admin")
                 {
@@ -129,7 +147,7 @@ namespace Task_Manager_Server
             
             while (true)
             {
-                Console.Write("Not admin mode>");
+                Console.Write("Not admin mode> ");
                 string cmd = Console.ReadLine();
                 if (cmd == "signin")
                 {
